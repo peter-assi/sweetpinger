@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>AddPing</servlet-name>
+		<servlet-class>appchk.AddPingServlet</servlet-class>
+	</servlet>
+    <servlet>
+        <servlet-name>DeletePing</servlet-name>
+        <servlet-class>appchk.DeletePingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DoPing</servlet-name>
+        <servlet-class>appchk.DoPingServlet</servlet-class>
+    </servlet>
+	<servlet>
+        <servlet-name>CronPing</servlet-name>
+        <servlet-class>appchk.CronPingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+		<servlet-name>AddPing</servlet-name>
+		<url-pattern>/ping</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>DeletePing</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>DoPing</servlet-name>
+        <url-pattern>/do/ping</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CronPing</servlet-name>
+        <url-pattern>/do/start</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<security-constraint>
+        <web-resource-collection>
+            <web-resource-name>cron and q</web-resource-name>
+            <url-pattern>/do/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+</web-app>
