@@ -13,7 +13,6 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>- sweetpinger - start</title>
   </head>
-
   <body>
     <h1>Gimme URL</h1>
     <%  
