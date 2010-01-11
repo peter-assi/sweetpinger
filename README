@@ -1,0 +1,7 @@
+This is a demo Google App Engine java project.
+
+It's a very rudimentary host checker. It basicly pings configured URLs using a http HEAD every 10 minutes sends an email in case of bad ping (status != 200). Perhaps not very useful in it's current state though I use it myself. With a very minor modification it could be used to keep an App Engine application warmed up at all times so there's no delay when the app hasn't been accessed for a while.
+
+The quality of the code is currently very far from state of the art Java code.
+
+The app is available online at http://sweetpinger.appspot.com
