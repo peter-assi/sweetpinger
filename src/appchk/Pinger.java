@@ -2,6 +2,7 @@ package appchk;
 
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Map;
 import java.util.Properties;
@@ -42,7 +43,7 @@ public class Pinger {
                 hasError = true;
             }
         } /*catch (ProtocolException e) {
-            log.error("", e);
+        	log.error("", e);
             hasError = true;
             status = e.getMessage();
         } catch (IOException e) {
@@ -52,7 +53,12 @@ public class Pinger {
         } */catch (Exception e) {
             log.error("", e);
             hasError = true;
-            status = e.getMessage();
+            status = e.getClass().getName()+": "+e.getMessage();
+            Throwable cause = e.getCause();
+            if (cause != null) {
+            	status += " cause: "+cause.getClass().getName()+": "+cause.getMessage();
+            }
+            
         }
 
         return new PingResponse(status, headers, hasError);
