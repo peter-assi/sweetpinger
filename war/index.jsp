@@ -14,7 +14,11 @@
     <title>- sweetpinger - start</title>
   </head>
   <body>
-    <h1>Gimme URL</h1>
+  <h1>Welcome to Sweetpinger</h1>
+  <div>Sweetping is a service the helps you check if your web apps are responding to requests. </div>
+  <div>We will ping (send a HEAD to) your URL every 10 minutes and if the response is anything else than 200 OK we will notify you by email. 
+  </div>
+    <h2>Input URL</h2>
     <%  
     String flash = (String)request.getAttribute(Stuff.FLASH);
     if (flash != null) {
@@ -31,7 +35,7 @@
 	   <input type="submit"></input>
 	</form>
 	<p>
-	If url doesn't begin with http it will be added. That means that https:// should be added for such urls.
+	If the URL doesn't begin with http it will be added. That means that https:// should be added for such urls.
 	</p>
 <%
 Principal user = request.getUserPrincipal();

@@ -24,17 +24,30 @@
     <%  
     }
     %>
+    <table>
+    <thead>
+    <tr>
+    <th>URL</th>
+    <th>Last status</th>
+    <th>Remove</th>
+    </tr>
+    </thead>
+    <tbody>
 <%
   List<PingUrl> urls = (List<PingUrl>)request.getAttribute(Stuff.LIST);
   for(PingUrl url : urls) {
       %>
-      <p>
-      <%=url.getUrl() %>&nbsp;<%=url.getLastStatus()%>&nbsp;<a href="<%=Stuff.DELETEROUTE+"?"+Stuff.ID+"="+url.getId()%>">Remove</a>
-      </p>
+      <tr>
+      <td><%= url.getUrl() %></td>
+      <td><%= url.getLastStatus()%></td>
+      <td><a href="<%=Stuff.DELETEROUTE+"?"+Stuff.ID+"="+url.getId()%>">Remove</a></td>
+      </tr>
       <%
   }
 
 %>
+    </tbody>
+</table>
 <%
 UserService userService = UserServiceFactory.getUserService();
 String logoutUrl = userService.createLogoutURL("/");
