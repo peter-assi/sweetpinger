@@ -49,5 +49,8 @@ if (user!=null){
     <a href="<%=loginUrl%>">Log in</a>
     <%
     }%>
+    
+    <h2>About</h2>
+    <div>Sweetpinger was created by <a href='http://peter.lind.be'>Peter Lind</a> as a Google App Engine demo. Full source is available at <a href='http://github.com/peterlind/sweetpinger'>github</a></div>
   </body>
 </html>
